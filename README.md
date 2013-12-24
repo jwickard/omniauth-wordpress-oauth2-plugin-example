@@ -36,6 +36,10 @@ run migrations
 
 ####6. Configure Your Wordpress Provider installation 
 
+Install Oauth2 provider plugin for your wordpress site:
+
+https://github.com/jwickard/wordpress-oauth
+
 Create client entry for your rails app with the callback key set to:
 
 ```
