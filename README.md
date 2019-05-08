@@ -16,7 +16,7 @@ Example rails app demoing configuration.
 #authentication bits
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-wordpress-oauth2-plugin', github: 'jwickard/omniauth-wordpress-oauth2-plugin'  
+gem 'omniauth-wordpress_hosted', github: 'jwickard/omniauth-wordpress-oauth2-plugin'  
 ```
 ####3. Run bundle install
 
