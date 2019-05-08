@@ -53,8 +53,8 @@ Save the generated key & secret for next step
 Add provider to devise initializer `config/initializers/devise.rb`
 
 ```ruby
- config.omniauth :wordpress_oauth2, 'APP_ID', 'APP_SECRET',
-                  strategy_class: OmniAuth::Strategies::WordpressOauth2Plugin,
+ config.omniauth :wordpress_hosted, 'APP_ID', 'APP_SECRET',
+                  strategy_class: OmniAuth::Strategies::WordpressHosted,
                   client_options: { site: 'http://yourcustomwordpress.com' }
 ```
 
