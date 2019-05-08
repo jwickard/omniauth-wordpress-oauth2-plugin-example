@@ -92,6 +92,9 @@ end
 
 Update user to be omniauthable
 
+`bundle exec rails g migration AddProviderAndUuidToUser provider:string uuid:string`
+`bundle exec rails db:migrate`
+
 ```ruby
 devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
