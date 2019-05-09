@@ -6,11 +6,11 @@ Example rails app demoing configuration.
 ## Steps
 (see commit history)
 
-####1. Create new rails app.
+#### 1. Create new rails app.
   
 ```rails new omniauth-wordpress-oauth2-plugin-example . --database=sqlite3 -T``` 
 
-####2. Add devise / omniauth gems to configuration file. `Gemfile`
+#### 2. Add devise / omniauth gems to configuration file. `Gemfile`
 
 ```ruby
 #authentication bits
@@ -18,15 +18,15 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-wordpress_hosted', github: 'jwickard/omniauth-wordpress-oauth2-plugin'  
 ```
-####3. Run bundle install
+#### 3. Run bundle install
 
 `bundle install`
 
-####4. Run devise install / follow installation instructions post generator.
+#### 4. Run devise install / follow installation instructions post generator.
 
 `rails g devise:install`
 
-####5. Generate devise user
+#### 5. Generate devise user
 
 `rails g devise user`
 
@@ -34,11 +34,13 @@ run migrations
 
 `rails db:migrate`
 
-####6. Configure Your Wordpress Provider installation 
+#### 6. Configure Your Wordpress Provider installation 
 
 Install Oauth2 provider plugin for your wordpress site:
 
 https://github.com/jwickard/wordpress-oauth
+
+Ensure you enable permalinks by opening the permalinks settings tab.  Select Postname scheme or you may receive varied results from the wordpress plugin during authentication.
 
 Create client entry for your rails app with the callback key set to:
 
@@ -48,7 +50,7 @@ http://your-rails-site.com/users/auth/wordpress_oauth2/callback
 
 Save the generated key & secret for next step
 
-####7. Configure Devise / Omniauth provider information
+#### 7. Configure Devise / Omniauth provider information
 
 Add provider to devise initializer `config/initializers/devise.rb`
 
@@ -58,7 +60,7 @@ Add provider to devise initializer `config/initializers/devise.rb`
                   client_options: { site: 'http://yourcustomwordpress.com' }
 ```
 
-####8. Add routes configuration
+#### 8. Add routes configuration
 
 Update routes `config/routes.rb` to add omniauth_callbacks controller
 
@@ -66,7 +68,7 @@ Update routes `config/routes.rb` to add omniauth_callbacks controller
 devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 ```
 
-####9. Create Callbacks Controller
+#### 9. Create Callbacks Controller
 
 Easiest to just create the class `app/controllers/omniauth_callbacks_controller.rb` instead of running generator.
 
@@ -88,7 +90,7 @@ class OmniauthCallbacksController < ApplicationController
 end
 ```
 
-####10. Update User Model
+#### 10. Update User Model
 
 Update user to be omniauthable
 
